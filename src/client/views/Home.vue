@@ -27,7 +27,7 @@
 				@click='login'>登录</mt-button>
 		</div>
 		<div class="fpword">
-			<span>Forget Password？</span>
+			<span @click='fpword' >Forget Password？</span>
 		</div>
 		<footer>
 			<div>
@@ -42,7 +42,7 @@
 	</div>
 </template>
 <script>
-import { MessageBox, Button } from 'mint-ui'
+import { MessageBox, Button, Toast } from 'mint-ui'
 import { getData } from '../assets/js/service/getData'
 export default {
 	name: 'home',
@@ -130,15 +130,22 @@ export default {
 		login(){
 			let that = this;
 			if (!that.nameWri[0].val || !that.nameWri[1].val) {
-				MessageBox.alert("请输入账号密码");
+				Toast("请输入账号密码");
 				return;
 			}
 			this.$axios(`123/${that.nameWri[0].val},${that.nameWri[1].val}`)
 			.then( (data) => {
 				MessageBox.alert(data.data.res);
 			});
-		}
+		},
 
+		//写了密码都能忘？
+		fpword(){
+			Toast({
+				message: '别急，该有的总会有的',
+				position: 'bottom',
+			});
+		}
 	}
 }
 </script>
