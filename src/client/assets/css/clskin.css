@@ -1,0 +1,118 @@
+/*header components*/
+.clskin_transpa_header{
+    background-color: #119dee;
+    color:#fff;
+}
+.title-nav .clskin_transpa_headeractive{
+    color:black;
+}
+.clskin_transpa_headercoverbox{
+    background-color: #fff;
+}
+.clskin_transpa_headerspan{
+    color: #fff;
+}
+.clskin_transpa_headerborder{
+    border: 1px solid #fff;
+}
+
+/*clShowToApply components*/
+.clskin_transpa_noApply{
+    background: #FFF8E8;
+    color: #614331;
+    border-bottom:1px solid #DADADA;
+}
+
+/*timeControl components*/
+.clskin_transpa_timecontrol{
+    background-color: #119dee;
+}
+.clskin_transpa_icon:before,.clskin_transpa_icon:after{
+    border-color: #fff;
+}
+.clskin_transpa_icon{
+    color: #fff;
+    border-color: #fff;
+}
+.clskin_transpa_timechange{
+    color:#D7D7D7;
+    border-color: #D7D7D7;
+}
+.clskin_transpa_timechange:before,.clskin_transpa_timechange:after{
+    border-color: #D7D7D7;
+}
+
+/*trainList page*/
+.clskin_transpa_price{
+    color: #FF9133;
+}
+.clskin_transpa_notickt{
+    color: #FF9133;
+}
+.clskin_transpa_stopinfo{
+	color: #83CCF6;	
+}
+.clskin_transpa_stopinfo span{
+	border-color:#83CCF6;	
+}
+.colum-3 .clskin_transpa_hr{
+	border-top-color: #83CCF6;
+}
+.clskin_transpa_orderBtn{
+	background-color: #ff9133;
+	color: white;
+}
+.clskin_transpa_unorderBtn{
+	background-color: #949494;
+	color: #fff;
+}
+.clskin_transpa_blueText{
+    color: #119edd;
+}
+.clskin_transpa_grayText{
+    color :black;
+}
+.clskin_transpa_search{
+	background-color: ;
+	color: ;
+}
+
+/*orderList page*/
+.clskin_transpa_listnav{
+    border-bottom: solid 2px rgb(17,157,238);
+}
+.clskin_transpa_listinfo{
+    color: #119dee;
+}
+
+/*orderDetail page*/
+.clskin_transpa_tips{
+    color: #119DEE;
+}
+.clskin_transpa_paybtn{
+    background-color: rgb(255,145,51);
+    color: white;
+}
+.clskin_transpa_chreBtn{
+    border: #119dee 1px solid;
+    color: #119DEE;
+    background-color: white;
+}
+
+/*applayChRe page*/
+.clskin_transpa_more{
+    color: #119DEE;
+}
+.mint-checkbox-input:checked +.clskin_transpa_checkbox{
+    background-color: #26a2ff;
+    border-color: #26a2ff;
+}
+.clskin_transpa_checkbox{
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.padding .clskin_transpa_subApply{
+    background-color: #119dee;
+    color: #fff;
+    border: 1px solid #119dee;
+}
