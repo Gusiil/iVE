@@ -1,8 +1,5 @@
 <template>
 	<div class="home">
-		<header>
-			<strong>我还没idear~~，反正先登录吧</strong>
-		</header>
 		<main>
 			<!-- 姓名 -->
 			<div class="info" v-for="(name, index) in nameWri" :key='index'>
@@ -13,16 +10,35 @@
 				<label :alt='name.alt' :placeholder='name.place'></label>
 
 				<div class="error-message" v-show='name.warn'>
-					<svg class="symbol symbol-delete"><svg id="icon-delete" viewBox="0 0 16 16">
-						<title>报错图标&amp;关闭图标</title> <path :d='delSvg'></path></svg></svg>
+					<svg class="symbol symbol-delete">
+						<svg id="icon-delete" viewBox="0 0 16 16">
+							<title>报错图标&amp;关闭图标</title> 
+							<path :d='delSvg'></path>
+						</svg>
+					</svg>
 					{{name.errorMsg}}
 				</div>
 			</div>
 		</main>
 		<div class="btn">
-			<mt-button size="large" type="primary" 
+			<mt-button 
+				size="large" 
+				type="primary" 
 				@click='login'>登录</mt-button>
 		</div>
+		<div class="fpword">
+			<span>Forget Password？</span>
+		</div>
+		<footer>
+			<div>
+				© 
+				<span style="margin-right:5px;">2019</span>
+				<span class="font_o">Gusiil</span>
+			</div>
+			<div>
+				由 iVE 强力驱动 | 主题 — iVE 1.0
+			</div>
+		</footer>
 	</div>
 </template>
 
@@ -137,17 +153,39 @@ export default {
 	main{
 		position: relative;
 		margin: 0 auto;
-		margin-top: 15rem;
+		margin-top: 13rem;
 		border: 1px solid #cccccc;
 		padding: 0 1rem;
 		width: 80%;
 		border-radius: 5px;
-		padding-bottom: 1rem; 
+		padding-bottom: 2rem; 
 		input{
 			border: none;
 		}
 	}
-
+	footer{
+		text-align: center;
+		position: fixed;
+		width: 100%;
+		bottom: 1rem;
+		div{
+			color: #999;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 14px;
+			margin: 20px 0;
+			code{
+				margin: 0 5px;
+			}
+			span{
+				margin: 0 1px;
+			}
+			.font_o{
+				font-family: fantasy;
+			}
+		}
+	}
 	.home{
 		.btn{
 			padding: 0 1rem;
@@ -164,7 +202,7 @@ export default {
 			border-color: red;
 		}
 		.info{
-			margin: 40px 0;
+			margin: 30px 0;
 			font-size: 16px;
 			.error-message{
 				position: relative;
@@ -184,7 +222,14 @@ export default {
 			margin-top: 25px;
 		}
 	}
-
+	.fpword{
+		text-align: center;
+		margin: 1rem 0;
+		font-family: -webkit-pictograph;
+		span{
+			border-bottom: 1px solid;
+		}
+	}
   input[type="text"][required] {
 	  box-sizing: border-box;
 	  width: 100%;
