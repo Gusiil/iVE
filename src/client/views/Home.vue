@@ -41,7 +41,6 @@
 		</footer>
 	</div>
 </template>
-
 <script>
 import { MessageBox, Button } from 'mint-ui'
 import { getData } from '../assets/js/service/getData'
