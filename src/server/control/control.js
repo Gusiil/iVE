@@ -17,7 +17,7 @@ const API = [{
         console.log(JSON.stringify(res));
 
         console.log(`账号：${res.ac},密码：${res.pass}`);
-        return res.ac === 'bingwen' && res.pass === '9527' ? {
+        return res.ac === 'gusiil' && res.pass === '9527' ? {
             state: true,
             res: `登录成功`,
         } : {

@@ -55,7 +55,7 @@ export default {
 			delSvg: "M7.179 7.988l-2.329-2.329c-0.223-0.223-0.223-0.585 0-0.808s0.585-0.223 0.808 0l2.329 2.329 2.329-2.329c0.223-0.223 0.585-0.223 0.808 0s0.223 0.585 0 0.808l-2.329 2.329 2.329 2.329c0.223 0.223 0.223 0.585 0 0.808s-0.585 0.223-0.808 0l-2.329-2.329-2.329 2.329c-0.223 0.223-0.585 0.223-0.808 0s-0.223-0.585 0-0.808l2.329-2.329zM8 16c4.418 0 8-3.582 8-8s-3.582-8-8-8c-4.418 0-8 3.582-8 8s3.582 8 8 8z",
 			nameWri:[{
 				place: '账号',
-				alt: '测试账号：bingwen',
+				alt: '测试账号：gusiil',
 				val: '',
 				warn: false,
 			},{
@@ -141,10 +141,11 @@ export default {
 				if (data.data.state){
 					that.$store.commit('ACCOUNT', that.nameWri[0].val);
 					that.$store.commit('PASSWORD', that.nameWri[1].val);
-
 					that.$router.push({
 						path: 'aboutIndex',
 					});
+				} else {
+					Toast(data.data.res);
 				}
 			});
 		},
