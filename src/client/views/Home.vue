@@ -139,6 +139,7 @@ export default {
 			this.$axios(`123/${that.nameWri[0].val},${that.nameWri[1].val}`)
 			.then( (data) => {
 				if (data.data.state){
+					$("#all").hide();
 					that.$store.commit('ACCOUNT', that.nameWri[0].val);
 					that.$store.commit('PASSWORD', that.nameWri[1].val);
 					that.$router.push({
@@ -157,7 +158,26 @@ export default {
 				position: 'bottom',
 			});
 		}
-	}
+	},
+
+	actived(){
+		alert(12);
+	},
+
+	beforeRouteEnter (to, from, next) {
+		if (to.name === 'home' && from.name){
+			$('#all').show();
+		}
+		next(vm => {
+			vm.initHeard();
+			vm.$nextTick(() => {
+				if (to.name === 'home' && from.name){
+					let go = () => window.scrollTo(0, initHei);
+					setTimeout(go, 0);
+				}
+			})
+		});
+  }
 }
 </script>
 

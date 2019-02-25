@@ -21,9 +21,9 @@ Vue.use(MintUI);
 let IMGlot = {
 	handleFlush: function(to, from) {
 		if(!Vue.FlushSign) {
-			if(to.path == "/") {
-				localStorage.setItem("iVE_STORE_", "{}");
-			}
+			// if(to.path == "/") {
+			// 	localStorage.setItem("iVE_STORE_", "{}");
+			// }
 			store.commit("InitFlush", {
 				stateLG: JSON.parse(localStorage.getItem("iVE_STORE_")) || {}
 			});
@@ -31,6 +31,7 @@ let IMGlot = {
 		} else {
 			localStorage.setItem("iVE_STORE_", JSON.stringify(vue.$store.state));
 		}
+		if(to.name !== 'home') $('#all').hide();
 	},
 }
 

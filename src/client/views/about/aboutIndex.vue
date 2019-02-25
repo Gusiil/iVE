@@ -56,6 +56,12 @@
                     isShowBack:false,
                 })
             },
+        },
+        
+        beforeRouteEnter (to, from, next) {
+            next(vm => {
+                vm.initHeader();
+            });
         }
     }
 </script>

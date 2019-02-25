@@ -12,11 +12,11 @@
 
     <transition :name="transitionName">  
       <keep-alive>
-          <router-view class="slider-container" v-if="$route.meta.keepAlive"/>
+          <router-view class="slider-container" :class="isHide ? 'h100' : ''" v-if="$route.meta.keepAlive"/>
       </keep-alive>
     </transition>
     <transition :name="transitionName">
-        <router-view v-if="!$route.meta.keepAlive" class="slider-container"></router-view>
+        <router-view v-if="!$route.meta.keepAlive" :class="isHide ? 'h100' : ''" class="slider-container"></router-view>
     </transition>
   </div>
 </template>
@@ -75,7 +75,7 @@
         }
           this.$router.isBack = false
       }
-    }
+    },
 }
 </script>
 
@@ -102,6 +102,7 @@ body{
 
 
 .slider-container {
+  height: auto;
   position: absolute;
   -webkit-transition-property: opacity,-webkit-transform;
   transition-property: opacity,-webkit-transform;
@@ -144,5 +145,8 @@ body .mint-indicator-text{
 }
 .marb_10{
   margin-bottom: 10px;
+}
+.h100{
+  height: 100%;
 }
 </style>
