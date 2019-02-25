@@ -1,7 +1,7 @@
 Vue + Express
 =========================================
-结合了Vue和express脚手架，npm run dev即可一站开启
-目前只做了登录页
+1.0 idear : 个人简历网站
+Vue和express脚手架结合，npm run dev 即可开启使用
 
 ## 文件目录
 
