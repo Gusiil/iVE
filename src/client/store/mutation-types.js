@@ -1,6 +1,2 @@
-export const SEARCH_PARAM = 'SEARCH_PARAM' // 首页提交参数
-export const INTERAIRORDER_BACKSTATE = 'INTERAIRORDER_BACKSTATE' // backstate 老牛逼了
-export const INTERAIR_SELPASLIST = 'INTERAIR_SELPASLIST' // 创单页面 选中人员
-export const INTERAIR_EDITPERSON_SELSTAFF = 'INTERAIR_EDITPERSON_SELSTAFF' // 创单页面 修改乘车人信息
-export const INTERAIR_FLIGHTINFO = 'INTERAIR_FLIGHTINFO'//选择舱位后给创单页面的航班信息
-export const INTERAIR_CHOOSEDFLIGHTINFO = 'INTERAIR_CHOOSEDFLIGHTINFO' //航班查询选择航班后未选择舱位的所有航班信息
+export const ACCOUNT = 'ACCOUNT' // 账号
+export const PASSWORD = 'PASSWORD' // 密码

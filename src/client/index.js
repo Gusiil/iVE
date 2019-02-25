@@ -8,6 +8,7 @@ import axios from 'axios'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 
+let vue = null;
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
@@ -16,7 +17,31 @@ Vue.prototype.$axios = axios;
 
 Vue.use(MintUI);
 
-new Vue({
+
+let IMGlot = {
+	handleFlush: function(to, from) {
+		if(!Vue.FlushSign) {
+			if(to.path == "/") {
+				localStorage.setItem("iVE_STORE_", "{}");
+			}
+			store.commit("InitFlush", {
+				stateLG: JSON.parse(localStorage.getItem("iVE_STORE_")) || {}
+			});
+			Vue.FlushSign = true;
+		} else {
+			localStorage.setItem("iVE_STORE_", JSON.stringify(vue.$store.state));
+		}
+	},
+}
+
+router.beforeEach((to, from, next) => {
+	//刷新保存store
+	IMGlot.handleFlush(to, from);
+
+	next();
+})
+
+vue = new Vue({
 	el: '#app',
 	router,
 	store,

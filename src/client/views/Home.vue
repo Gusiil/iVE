@@ -66,6 +66,7 @@ export default {
 			}],
 			//填入信息处理类
 			Val:{},
+			storeMe: this.$store.state.me,
 		}
 	},
 	computed:{
@@ -83,7 +84,7 @@ export default {
 	methods: {
 		initHeard(){
      		this.bus.$emit("init-header", {
-				 hide: true,
+				isHide: true,
 			})
 		},
 		initVal(){
@@ -120,6 +121,8 @@ export default {
 					!info.place ? juCard()  : '';
 				}
 			}
+			this.nameWri[0].val = this.storeMe.account;
+			this.nameWri[1].val = this.storeMe.password;
 		},
 		//信息输入
 		juWrite(info, type){
@@ -135,7 +138,14 @@ export default {
 			}
 			this.$axios(`123/${that.nameWri[0].val},${that.nameWri[1].val}`)
 			.then( (data) => {
-				MessageBox.alert(data.data.res);
+				if (data.data.state){
+					that.$store.commit('ACCOUNT', that.nameWri[0].val);
+					that.$store.commit('PASSWORD', that.nameWri[1].val);
+
+					that.$router.push({
+						path: 'aboutIndex',
+					});
+				}
 			});
 		},
 
@@ -171,9 +181,9 @@ export default {
 	}
 	footer{
 		text-align: center;
-		position: fixed;
+    	position: relative;
 		width: 100%;
-		bottom: 1rem;
+    	top: 10vh;
 		div{
 			color: #999;
 			display: flex;

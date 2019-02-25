@@ -2,7 +2,12 @@
 
   <div id="app">
   
-    <cl-header v-show='!hide' fixed v-bind:meBack="goBack" v-bind:choseType="choseType"  v-bind:title="title" v-bind:isChildView="isChildView" v-bind:rightLink="rightLink" v-bind:rightFun="rightFun"  v-bind:choseType.sync="tripType" v-bind:isActive="tripType" v-if="isShowHead" :isShowBack="isShowBack" :isGoSearch="isGoSearch" :bg_0='bg_0'>
+    <cl-header 
+       v-bind:meBack="goBack" 
+      v-bind:title="title" 
+      v-bind:isChildView="isChildView" 
+      v-if="!isHide" 
+      :bg_0='bg_0'>
     </cl-header> 
 
     <transition :name="transitionName">  
@@ -24,18 +29,13 @@
   data(){
       return {
           transitionName:'',
-          tripType:"",
           title:"",
-          rightLink:{},
-          rightFun :{},
           meBack:null,
-          choseType:"2",
           isShowHead:true,
           isChildView:false,
           isShowBack:true,
-          isGoSearch:false,
           bg_0:"",
-          hide:false,
+          isHide: false,
       }
   },
   components: {
@@ -44,22 +44,14 @@
   created(){
     let that = this;
      this.bus.$on("init-header",function(item){
-        that.hide = item.hide || false,
         that.isChildView = item.isChildView||false;
         that.title = item.title||"";
-        that.tripType = item.tripType||"";
-        that.rightLink = item.rightLink||{};
-        that.rightFun = item.rightFun||{};
         that.meBack = item.meBack||null;
         that.bg_0 = item.bg_0||false;
+        that.isHide = item.isHide || false;
         if(item.isShowBack!==undefined){
           that.isShowBack = item.isShowBack;
         };
-        if(item.isGoSearch!==undefined){
-          that.isGoSearch=item.isGoSearch;
-        } else {
-          that.isGoSearch=false;
-        }
     })
   },
   methods:{
@@ -68,7 +60,7 @@
             this.$router.isBack = true;
             this.meBack();
           }else{
-            this.$router.goBack();
+            this.$router.go(-1);
           }
       }
   },
@@ -89,9 +81,6 @@
 
 <style>
 #app {
-  position: absolute; 
-  top: 0;
-  bottom: 0;
   overflow-x: hidden;
   width: 100%;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -123,7 +112,6 @@ body{
   -webkit-transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
           transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
   width: 100%;
-  height:100%;
 }
 .slide-left-enter,
 .slide-right-leave-active {

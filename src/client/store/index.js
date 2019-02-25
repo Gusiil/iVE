@@ -9,7 +9,8 @@ import commonMutations from './modules/common/mutations';
 Vue.use(Vuex)
 
 const state = {
-    city:123,
+    account: '',
+    password: '',
 }
 
 let modules = {
